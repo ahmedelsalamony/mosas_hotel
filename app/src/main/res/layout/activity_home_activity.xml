@@ -49,6 +49,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:weightSum="3"
+            android:layout_marginTop="6dp"
             >
 
             <LinearLayout
@@ -241,10 +242,5 @@
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
-
-
-
-
 </RelativeLayout>
