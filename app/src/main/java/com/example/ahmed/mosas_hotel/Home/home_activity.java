@@ -1,8 +1,10 @@
 package com.example.ahmed.mosas_hotel.Home;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import com.example.ahmed.mosas_hotel.Booking.Booking;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -13,6 +15,7 @@ import com.example.ahmed.mosas_hotel.R;
 import java.util.HashMap;
 
 public class home_activity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
+    View Booking;
 
     private SliderLayout mDemoSlider;
     public int x;
@@ -21,6 +24,15 @@ public class home_activity extends AppCompatActivity implements BaseSliderView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_activity);
         /*intialization for slider */
+
+       // Booking=findViewById(R.id.Booking);
+        Booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(home_activity.this,Booking.class);
+                startActivity(i);
+            }
+        });
         mDemoSlider = (SliderLayout)findViewById(R.id.slider);
         HashMap<String,String> url_maps = new HashMap<String, String>();
         url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
