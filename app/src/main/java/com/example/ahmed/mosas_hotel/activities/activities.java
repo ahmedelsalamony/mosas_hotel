@@ -6,11 +6,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
 import com.example.ahmed.mosas_hotel.Adapters.activities_Adapter;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.model.model_activities;
-
 import java.util.ArrayList;
 import java.util.List;
 

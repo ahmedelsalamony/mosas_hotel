@@ -9,17 +9,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
+import com.dd.CircularProgressButton;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.fonts.MySpinnerAdapter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class Booking extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
+public class Booking extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     CardView card;
     Spinner s1, s2;
-String[] arrays1,arrays2;
+    String[] arrays1, arrays2;
+    CircularProgressButton b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,18 +32,33 @@ String[] arrays1,arrays2;
         card = (CardView) findViewById(R.id.Card);
         card.setMinimumHeight(height - 250);
         component();
-        arrays1=new String[]{"Transfer","Yes","No"};
-        arrays2=new String[]{"How Did Y Hear About Us","Internet Search","Recommended By Friend","Positive Media Review"};
+        arrays1 = new String[]{"Transfer", "Yes", "No"};
+        arrays2 = new String[]{"How Did Y Hear About Us", "Internet Search", "Recommended By Friend", "Positive Media Review"};
+        SpinnerDate(arrays1, s1);
+        SpinnerDate(arrays2, s2);
+        b1.setOnClickListener(this);
+        b1.setIndeterminateProgressMode(true);
+
+
 
     }
-public void component(){
-    s1=(Spinner)findViewById(R.id.s1);
-    s2=(Spinner)findViewById(R.id.s2);
-}
+
+    public void component() {
+        s1 = (Spinner) findViewById(R.id.s1);
+        s2 = (Spinner) findViewById(R.id.s2);
+        b1=(CircularProgressButton)findViewById(R.id.btnWithText);
+    }
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+           case  R.id.btnWithText:
+               b1.setProgress(50); // set progress > 0 & < 100 to display indeterminate progress
+              // b1.setProgress(0);
 
+
+               break;
+        }
 
     }
 
@@ -59,7 +74,7 @@ public void component(){
 
     public void SpinnerDate(String[] array1, Spinner s) {
         MySpinnerAdapter adapter = new MySpinnerAdapter(
-               this,
+                Booking.this,
                 R.layout.spinrtitem,
                 Arrays.asList(array1)
         );

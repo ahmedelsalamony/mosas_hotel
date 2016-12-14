@@ -25,7 +25,7 @@ public class home_activity extends AppCompatActivity implements BaseSliderView.O
         setContentView(R.layout.activity_home_activity);
         /*intialization for slider */
 
-       // Booking=findViewById(R.id.Booking);
+        Booking=findViewById(R.id.Booking);
         Booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

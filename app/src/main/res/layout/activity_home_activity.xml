@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="2">
-
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +37,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             >
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,6 +52,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/Booking"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="4dp"
@@ -243,5 +243,14 @@
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:background="#666"
+            android:text="\@copyWrite MosaaHotale"
+            android:textColor="#fff"
+            android:layout_gravity="center"
+            android:gravity="center"/>
     </LinearLayout>
 </RelativeLayout>

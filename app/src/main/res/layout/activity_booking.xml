@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/activity_booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -161,10 +163,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-            <Button
+            <com.dd.CircularProgressButton
+                android:id="@+id/btnWithText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Booking"/>
+                android:layout_marginTop="16dp"
+                android:textColor="@color/yellow"
+                android:textSize="18sp"
+                app:cpb_textComplete="Complete"
+                app:cpb_textError="Error"
+                app:cpb_textIdle="Upload" />
         </LinearLayout>
 
 
