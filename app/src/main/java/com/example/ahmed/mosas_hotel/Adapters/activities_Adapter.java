@@ -41,6 +41,8 @@ public class activities_Adapter extends RecyclerView.Adapter<activities_Adapter.
         holder.description.setText(model_activities.getDiscripton());
         Picasso.with(itemView.getContext()).load(model_activities.getActivities_pics())
                 .transform(new CircleTransform()).into(holder.img);
+
+
     }
 
     @Override
@@ -54,12 +56,11 @@ public class activities_Adapter extends RecyclerView.Adapter<activities_Adapter.
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.txt_title);
-            description = (TextView) view.findViewById(R.id.txt_description);
-            img = (ImageView) view.findViewById(R.id.imageView);
+            title = (TextView) view.findViewById(R.id.title);
+            description = (TextView) view.findViewById(R.id.artist);
+            img = (ImageView) view.findViewById(R.id.list_image);
 
         }
     }
-
 
 }

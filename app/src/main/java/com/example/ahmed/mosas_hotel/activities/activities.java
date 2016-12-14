@@ -24,7 +24,7 @@ public class activities extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities);
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
         mAdapter = new activities_Adapter(disList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplication());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -34,12 +34,18 @@ public class activities extends AppCompatActivity {
     }
     private void prepareMovieData() {
 
-        String[] names = {"احمد عبدالحميد شعبان السلامونى", "احمد عبدالحميد شعبان السلامونى", "احمد عبدالحميد شعبان السلامونى"
-                , "احمد عبدالحميد شعبان السلامونى", "احمد عبدالحميد شعبان السلامونى"};
+        String[] names = {"Sports", "Relaxing", "sun tan"
+                , "Snorkeling and fishing", "Monastery of ST.Catherine 120 km",
+        "Ras Mohamed national park 70 km","Overnight in Sharm 90 km","Bedouin dinner","Trip to Cairo",
+                "Moses bath (natural spring) 1.5 km"};
 
-        String[] dates = {"20/1/2016", "20/1/2016", "20/1/2016", "20/1/2016", "20/1/2016"};
+        String[] dates = {" (windsurfing , kitesurfing & water sports)",
+                " ( yoga & natural springs meditation)", "Enjoy the sun tan ", "Enjoy the adventure of climming ST.Catherine",
+                "Enjoy with the beauty of nature","","Taking dinner in bedouin style is so good",
+                "see pyramids and cairo Tourist Attractions","",""};
 
-        int[] activites_pics={R.drawable.email,R.drawable.about,R.drawable.heart,R.drawable.email,R.drawable.info};
+        int[] activites_pics={R.drawable.windsurfingimg,R.drawable.yogaimg,R.drawable.sunimg,R.drawable.snorkingimg
+                ,R.drawable.catrenaimg,R.drawable.rasimg,R.drawable.overnightimg,R.drawable.dinnerimg,R.drawable.cairoimg,R.drawable.pathimg};
 
         for (int x = 0; x < names.length; x++) {
             model_activities model_activities = new model_activities( names[x],  dates[x],activites_pics[x]);
