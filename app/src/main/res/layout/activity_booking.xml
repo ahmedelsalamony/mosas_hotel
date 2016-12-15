@@ -30,9 +30,11 @@
             />
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
         <android.support.v7.widget.CardView
             android:id="@+id/Card"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -46,6 +48,7 @@
 
 
         <LinearLayout
+            android:paddingBottom="10dp"
             android:paddingTop="5dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
@@ -55,6 +58,7 @@
 
 
             <EditText
+                android:id="@+id/email"
                 android:textColorHint="@color/yellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,6 +70,7 @@
                 android:paddingTop="5dp"
                 android:layout_marginBottom="10dp"/>
             <EditText
+                android:id="@+id/name"
                 android:textColorHint="@color/yellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <EditText
+                android:id="@+id/to"
                 android:textColorHint="@color/yellow"
                 android:drawableRight="@drawable/calendar"
                 android:layout_weight="1"
@@ -95,6 +101,7 @@
                 android:paddingTop="5dp"
                 android:layout_marginBottom="10dp"/>
                 <EditText
+                    android:id="@+id/from"
                     android:textColorHint="@color/yellow"
                     android:drawableRight="@drawable/calendar"
                     android:layout_marginLeft="3dp"
@@ -110,6 +117,7 @@
                     android:layout_marginBottom="10dp"/>
             </LinearLayout>
             <EditText
+                android:id="@+id/type"
                 android:textColorHint="@color/yellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,6 +129,7 @@
                 android:paddingTop="5dp"
                 android:layout_marginBottom="10dp"/>
             <EditText
+                android:id="@+id/country"
                 android:textColorHint="@color/yellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,13 +171,26 @@
                     style="@style/Widget.AppCompat.Spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
             </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="3"
+                android:background="@drawable/button1"
+                android:hint="Description Your Request..."
+                android:textColorHint="@color/yellow"
+                android:padding="5dp"
+                android:textAlignment="gravity"
+                android:gravity="top"
+                />
             <com.dd.CircularProgressButton
+                app:cpb_cornerRadius="48dp"
                 android:id="@+id/btnWithText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/yellow"
+                android:textColor="#fff"
                 android:textSize="18sp"
                 app:cpb_textComplete="Complete"
                 app:cpb_textError="Error"
