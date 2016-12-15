@@ -31,7 +31,12 @@
             android:textAllCaps="false"
             android:textStyle="bold"
             android:drawableRight="@drawable/contactusicon"
-            android:padding="8dp"
+            android:padding="12dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+
             />
     </LinearLayout>
 </RelativeLayout>
