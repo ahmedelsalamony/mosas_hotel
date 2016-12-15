@@ -15,21 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".activities.activities_activity">
-
-        </activity>
+        <activity android:name=".activities.activities_activity"></activity>
         <activity android:name=".Home.home_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".Booking.Booking" />
-        <activity android:name=".team.team_activity">
-
-        </activity>
+        <activity android:name=".team.team_activity"></activity>
+        <activity android:name=".About.About"></activity>
     </application>
 
 </manifest>

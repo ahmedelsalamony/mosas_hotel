@@ -116,6 +116,8 @@ public class home_activity extends AppCompatActivity implements View.OnClickList
                 startActivity(i);
                 break;
             case R.id.about:
+                i = new Intent(home_activity.this, com.example.ahmed.mosas_hotel.About.About.class);
+                startActivity(i);
                 Toast.makeText(getApplication(), "about", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.activities:

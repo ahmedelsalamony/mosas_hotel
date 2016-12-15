@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.ahmed.mosas_hotel.About.About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/line">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:padding="10dp"
+                android:text="MOSES BAY"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/line2"></LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pargraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars = "vertical"
+            android:text=" Moses Bay Resort is a small 3 stars simple hotel , the first holiday resort destination in El Tor City , in South Sinai peninsula .
+
+Moses bay resort is located on its own private peninsula , surrounded by sea , between its private lake and gulf of Suez , with a background of Moses bath mountain with its natural water springs , just 1500 meters from hotel .
+
+Moses bay resort have a long private sandy beach , and moderate climate all year around and has barely been touched by tourism , that turns it into a perfect destination for many activities and sports ( windsurfing, kitesurfing &amp; water sports ) also relaxing activities  ( yoga &amp; natural springs meditation ) or simply enjoy the sun tan , snorkeling and fishing.
+
+El Tor is increasingly known windsurfer destination on the red sea as it offers a wide range of sailing for all levels of windsurfer . it's a unique location provides ideal conditions for the beginner combined with flat water makes it perfect for blasting , free style , bump &amp; jump and great wave location too just around the corner .
+
+The beach shelves away smoothly into shallow water providing a safe entry into the sailing zone . Perfect conditions to practice your water sports.
+
+Moses bay resort has 56 rooms , including 6 family rooms all equipped with air conditioning, fridge , satellite TV , sea view terrace ."
+            android:textColor="#B25F06"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>
