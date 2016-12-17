@@ -6,12 +6,15 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.example.ahmed.mosas_hotel.R;
@@ -24,7 +27,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
     int year_x, day_x, month_x;
     int flag = 0;
     static final int Dilog_Id = 0;
-    EditText name, country, email, from, to;
+    EditText name, country, email, from, to, details;
     CardView card;
     Spinner s1, s2;
     String[] arrays1, arrays2;
@@ -35,6 +38,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         Display display = getWindowManager().getDefaultDisplay();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
@@ -72,13 +76,15 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         from = (EditText) findViewById(R.id.from);
         to = (EditText) findViewById(R.id.to);
         country = (EditText) findViewById(R.id.country);
+        details = (EditText) findViewById(R.id.details);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnWithText:
-                b1.setProgress(50); // set progress > 0 & < 100 to display indeterminate progress
+                if(validate()){
+                b1.setProgress(50); }// set progress > 0 & < 100 to display indeterminate progress
                 // b1.setProgress(0);
 
 
@@ -137,5 +143,46 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         adapter.setDropDownViewResource(R.layout.downspinner);
         s.setAdapter(adapter);
     }
+
+
+    public Boolean validate() {
+        Boolean out = true;
+        if (TextUtils.isEmpty(name.getText())) {
+            name.setError("Enter Your Name");
+            out = false;
+        }
+        if (TextUtils.isEmpty(email.getText())) {
+            email.setError("Enter Your Email");
+            out = false;
+        }
+        if (TextUtils.isEmpty(from.getText())) {
+            from.setError("Enter Your Date");
+            out = false;
+        }
+        if (TextUtils.isEmpty(to.getText())) {
+            to.setError("Enter Your Date");
+            out = false;
+        }
+        if (TextUtils.isEmpty(details.getText())) {
+            details.setError("Enter Your Descraption");
+            out = false;
+        }
+        if (TextUtils.isEmpty(country.getText())) {
+            country.setError("Enter Your Country");
+            out = false;
+        }
+        if (s1.getSelectedItemPosition() == 0) {
+            ((TextView) s1.getChildAt(0)).setError(".");
+            out = false;
+        }
+        if (s2.getSelectedItemPosition() == 0) {
+            ((TextView) s2.getChildAt(0)).setError(".");
+            out = false;
+        }
+
+        return out;
+    }
+
+
 
 }
