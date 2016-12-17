@@ -46,11 +46,29 @@ public class home_activity extends AppCompatActivity implements View.OnClickList
             }
         });
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
-        HashMap<String, String> url_maps = new HashMap<String, String>();
+        HashMap<String, Integer> url_maps = new HashMap<String, Integer>();
+        url_maps.put("Hannibal", R.drawable.h1);
+        url_maps.put("Big Bang Theory", R.drawable.h17);
+        url_maps.put("House of Cards", R.drawable.h13);
+        url_maps.put("Game of Thrones", R.drawable.h4);
+        url_maps.put("Hannibal1", R.drawable.h5);
+        url_maps.put("Big Bang 2Theory", R.drawable.h6);
+        url_maps.put("House of 3Cards", R.drawable.h10);
+        url_maps.put("Game of 4Thrones", R.drawable.h11);
+        url_maps.put("Game of 4Thrones", R.drawable.dinnerimg);
+        url_maps.put("Game of 4Thrones", R.drawable.sunimg);
+        url_maps.put("Game of 4Thrones", R.drawable.snorkingimg);
+        url_maps.put("Game of 4Thrones", R.drawable.windsurfingimg);
+        url_maps.put("Game of 4Thrones", R.drawable.catrenaimg);
+
+
+
+
+      /*
         url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
         url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
         url_maps.put("House of Cards", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
-        url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+        url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");*/
         for (String name : url_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(home_activity.this);
             // initialize a SliderLayout

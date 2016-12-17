@@ -91,7 +91,7 @@ public class team_activity extends AppCompatActivity {
 
         String[] dates = {"General Manager ","assistant general manager ","Restaurant Manager ","Owner"};
 
-        int[] activites_pics={R.drawable.chara,R.drawable.chara,R.drawable.chara,R.drawable.chara,};
+        int[] activites_pics={R.drawable.h7,R.drawable.h14,R.drawable.h8,R.drawable.h15,};
 
         for (int x = 0; x < names.length; x++) {
             model_activities model_activities = new model_activities( names[x],  dates[x],activites_pics[x]);
