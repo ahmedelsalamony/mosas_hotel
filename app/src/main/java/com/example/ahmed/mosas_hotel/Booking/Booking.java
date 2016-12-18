@@ -3,6 +3,7 @@ package com.example.ahmed.mosas_hotel.Booking;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
+import com.example.ahmed.mosas_hotel.Home.home_activity;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.fonts.MySpinnerAdapter;
 import com.example.ahmed.mosas_hotel.uilit.AsyncHttpClient;
@@ -237,12 +239,19 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
                 Log.e("onSuccess", response + "");
                 Log.e("onSuccess", response.length() + "");
                 try {
-
+                    Intent i=new Intent(Booking.this,home_activity.class);
+if(response.getInt("response")==1){
+    startActivity(i);
+    Toast.makeText(getApplicationContext(), "Saved Directly", Toast.LENGTH_LONG).show();
+}else {
+    startActivity(i);
+    Toast.makeText(getApplicationContext(), "Try in another time", Toast.LENGTH_LONG).show();
+}
 
                 } catch (Exception ex) {
 
