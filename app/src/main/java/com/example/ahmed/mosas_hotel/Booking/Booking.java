@@ -2,11 +2,13 @@ package com.example.ahmed.mosas_hotel.Booking;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,19 +17,29 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.fonts.MySpinnerAdapter;
+import com.example.ahmed.mosas_hotel.uilit.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.Calendar;
+
+import cz.msebera.android.httpclient.Header;
 
 public class Booking extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     int year_x, day_x, month_x;
     int flag = 0;
     static final int Dilog_Id = 0;
-    EditText name, country, email, from, to, details;
+    EditText name, country, email, from, to, details, type;
     CardView card;
     Spinner s1, s2;
     String[] arrays1, arrays2;
@@ -37,6 +49,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Display display = getWindowManager().getDefaultDisplay();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Point size = new Point();
@@ -71,6 +84,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         s1 = (Spinner) findViewById(R.id.s1);
         s2 = (Spinner) findViewById(R.id.s2);
         b1 = (CircularProgressButton) findViewById(R.id.btnWithText);
+        type = (EditText) findViewById(R.id.type);
         name = (EditText) findViewById(R.id.name);
         email = (EditText) findViewById(R.id.email);
         from = (EditText) findViewById(R.id.from);
@@ -83,19 +97,41 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnWithText:
-                if(validate()){
-                b1.setProgress(50); }// set progress > 0 & < 100 to display indeterminate progress
+                if (validate()) {
+                    b1.setProgress(50);
+                    try {
+                        RequestParams params = new RequestParams();
+                        params.put("request", "ideaformspinner");//åÊÛíÑ ÇáÇÓã ÍÓÈ ãÇ íÞæáß æåÊÈÚÊáÉ Çá id ãä Çáshared refrance
+                        params.put("", email.getText());
+                        params.put("name", name.getText());
+                        params.put("email", email.getText());
+                        params.put("departure", to.getText());
+                        params.put("arrival", from.getText());
+                        params.put("type_of_room", type.getText());
+                        params.put("country_name", country.getText());
+                        params.put("message", details.getText());
+                        params.put("transfer", arrays1[s1.getSelectedItemPosition()]);
+                        params.put("hear_about", arrays2[s2.getSelectedItemPosition()]);
+                        Load(params);
+                    } catch (Exception ex) {
+                        Toast.makeText(getApplicationContext(), "Exception" + ex, Toast.LENGTH_LONG).show();
+                    }
+
+
+                }// set progress > 0 & < 100 to display indeterminate progress
                 // b1.setProgress(0);
 
 
                 break;
             case R.id.from:
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                 showDialog(Dilog_Id);
                 flag = 1;
                 break;
             case R.id.to:
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                 showDialog(Dilog_Id);
-                flag=2;
+                flag = 2;
                 break;
         }
 
@@ -151,6 +187,10 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
             name.setError("Enter Your Name");
             out = false;
         }
+        if (TextUtils.isEmpty(type.getText())) {
+            type.setError("Enter Room Type");
+            out = false;
+        }
         if (TextUtils.isEmpty(email.getText())) {
             email.setError("Enter Your Email");
             out = false;
@@ -183,6 +223,55 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         return out;
     }
 
+    public void Load(RequestParams params) throws JSONException {
+
+        AsyncHttpClient.post("", params, new JsonHttpResponseHandler() {
+            ProgressDialog progressDialog;
+
+            @Override
+            public void onStart() {
+               /* progressDialog = new ProgressDialog(Booking.this);
+                progressDialog.setCancelable(false);
+                progressDialog.setMessage("ÌÇÑì ÇáÈÍË...");
+                progressDialog.show();*/
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+
+                Log.e("onSuccess", response + "");
+                Log.e("onSuccess", response.length() + "");
+                try {
+
+
+                } catch (Exception ex) {
+
+                    Toast.makeText(getApplicationContext(), "ÇÔÇÑå ÇáäÊ ÖÛíÝå", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                // Toast.makeText(getActivity().getApplicationContext(), "onFailure", Toast.LENGTH_LONG).show();
+                // Log.e("onFailure", "----------" + responseString);
+
+                Log.e("onFailure", "----------" + responseString);
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                // progressDialog.dismiss();
+
+
+            }
+
+        });
+
+
+    }
 
 
 }

@@ -58,6 +58,7 @@
 
 
             <EditText
+                android:inputType="textEmailAddress"
                 android:id="@+id/email"
                 android:textColorHint="@color/yellow"
                 android:layout_width="match_parent"
@@ -88,6 +89,7 @@
             <EditText
                 android:focusable="false"
                 android:focusableInTouchMode="false"
+                android:editable="false"
                 android:id="@+id/to"
                 android:textColorHint="@color/yellow"
                 android:drawableRight="@drawable/calendar"
@@ -103,8 +105,8 @@
                 android:paddingTop="5dp"
                 android:layout_marginBottom="10dp"/>
                 <EditText
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+
+                    android:editable="false"
                     android:id="@+id/from"
                     android:textColorHint="@color/yellow"
                     android:drawableRight="@drawable/calendar"
