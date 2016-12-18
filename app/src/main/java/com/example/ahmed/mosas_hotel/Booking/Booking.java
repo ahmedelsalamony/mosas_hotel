@@ -28,7 +28,6 @@ import com.example.ahmed.mosas_hotel.uilit.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -103,8 +102,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
                     b1.setProgress(50);
                     try {
                         RequestParams params = new RequestParams();
-                        params.put("request", "ideaformspinner");//åÊÛíÑ ÇáÇÓã ÍÓÈ ãÇ íÞæáß æåÊÈÚÊáÉ Çá id ãä Çáshared refrance
-                        params.put("", email.getText());
+                      //  params.put("request", "ideaformspinner");//åÊÛíÑ ÇáÇÓã ÍÓÈ ãÇ íÞæáß æåÊÈÚÊáÉ Çá id ãä Çáshared refrance
                         params.put("name", name.getText());
                         params.put("email", email.getText());
                         params.put("departure", to.getText());
@@ -244,14 +242,14 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
                 Log.e("onSuccess", response + "");
                 Log.e("onSuccess", response.length() + "");
                 try {
-                    Intent i=new Intent(Booking.this,home_activity.class);
-if(response.getInt("response")==1){
-    startActivity(i);
-    Toast.makeText(getApplicationContext(), "Saved Directly", Toast.LENGTH_LONG).show();
-}else {
-    startActivity(i);
-    Toast.makeText(getApplicationContext(), "Try in another time", Toast.LENGTH_LONG).show();
-}
+                    Intent i = new Intent(Booking.this, home_activity.class);
+                    if (response.getInt("response") == 1) {
+                        startActivity(i);
+                        Toast.makeText(getApplicationContext(), "Saved Directly", Toast.LENGTH_LONG).show();
+                    } else {
+                        startActivity(i);
+                        Toast.makeText(getApplicationContext(), "Try in another time", Toast.LENGTH_LONG).show();
+                    }
 
                 } catch (Exception ex) {
 

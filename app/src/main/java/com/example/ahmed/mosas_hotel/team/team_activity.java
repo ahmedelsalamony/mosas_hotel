@@ -40,7 +40,7 @@ public class team_activity extends AppCompatActivity {
         prepareMovieData();
         setTitle("Hotel Team");
 
-        Button btn=(Button) findViewById(R.id.btn_contactus);
+        View btn= findViewById(R.id.btn_contactus);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override

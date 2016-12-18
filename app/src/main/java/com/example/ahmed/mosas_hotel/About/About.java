@@ -26,7 +26,7 @@ TextView pargraph;
         int width = size.x;
         int height = size.y;
         pargraph=(TextView)findViewById(R.id.pargraph);
-        pargraph.setHeight(height-400);
+        pargraph.setHeight(height-(height/2));
         pargraph.setMovementMethod(new ScrollingMovementMethod());
 
     }

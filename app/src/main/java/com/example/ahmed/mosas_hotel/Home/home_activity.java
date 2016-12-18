@@ -152,9 +152,9 @@ public class home_activity extends AppCompatActivity implements View.OnClickList
                 // Custom Android Allert Dialog Title
                 dialog.setTitle("feel free to Contact us");
 
-                Button dail = (Button) dialog.findViewById(R.id.btn_dial);
+                View dail =  dialog.findViewById(R.id.btn_dial);
 
-                Button email = (Button) dialog.findViewById(R.id.btn_mail);
+                View email =  dialog.findViewById(R.id.btn_mail);
 
                 // Click cancel to dismiss android custom dialog box
                 dail.setOnClickListener(new View.OnClickListener() {
