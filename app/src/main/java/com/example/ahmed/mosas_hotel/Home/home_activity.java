@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -17,9 +18,11 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.example.ahmed.mosas_hotel.CircleTransform;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.activities.activities_activity;
 import com.example.ahmed.mosas_hotel.team.team_activity;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -36,7 +39,9 @@ public class home_activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_activity);
         /*intialization for slider */
-
+        ImageView logo=(ImageView)findViewById(R.id.logo) ;
+        Picasso.with(this).load(R.drawable.small)
+                .transform(new CircleTransform()).into(logo);
         Booking = findViewById(R.id.Booking);
         Booking.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +141,7 @@ public class home_activity extends AppCompatActivity implements View.OnClickList
             case R.id.about:
                 i = new Intent(home_activity.this, com.example.ahmed.mosas_hotel.About.About.class);
                 startActivity(i);
-                Toast.makeText(getApplication(), "about", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplication(), "about", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.activities:
                 i = new Intent(home_activity.this, activities_activity.class);

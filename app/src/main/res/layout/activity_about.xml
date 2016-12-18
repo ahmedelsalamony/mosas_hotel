@@ -9,33 +9,66 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/line">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:padding="5dp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:padding="10dp"
-                android:text="MOSES BAY"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:text="About Mossa"
                 android:textColor="#fff"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textSize="20dp" />
+
+
+        </android.support.v7.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/line2"></LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/line">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="20dp"
+                    android:gravity="bottom"
+                    android:padding="10dp"
+                    android:text="MOSES BAY"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/line2"></LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -45,14 +78,14 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/pargraph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars = "vertical"
+            android:scrollbars="vertical"
             android:text=" Moses Bay Resort is a small 3 stars simple hotel , the first holiday resort destination in El Tor City , in South Sinai peninsula .
 
 Moses bay resort is located on its own private peninsula , surrounded by sea , between its private lake and gulf of Suez , with a background of Moses bath mountain with its natural water springs , just 1500 meters from hotel .
@@ -66,6 +99,7 @@ The beach shelves away smoothly into shallow water providing a safe entry into t
 Moses bay resort has 56 rooms , including 6 family rooms all equipped with air conditioning, fridge , satellite TV , sea view terrace ."
             android:textColor="#B25F06"
             android:textSize="15sp" />
-    </LinearLayout>
+    </LinearLayout
+>
 
 </RelativeLayout>

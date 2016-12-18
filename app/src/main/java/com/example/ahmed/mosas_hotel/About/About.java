@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Display;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.ahmed.mosas_hotel.CircleTransform;
 import com.example.ahmed.mosas_hotel.R;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.ArrayList;
@@ -21,6 +24,9 @@ TextView pargraph;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Display display = getWindowManager().getDefaultDisplay();
+        ImageView logo=(ImageView)findViewById(R.id.logo) ;
+        Picasso.with(this).load(R.drawable.small)
+                .transform(new CircleTransform()).into(logo);
         Point size = new Point();
         display.getSize(size);
         int width = size.x;

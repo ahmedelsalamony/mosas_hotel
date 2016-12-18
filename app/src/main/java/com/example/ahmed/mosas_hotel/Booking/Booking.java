@@ -16,17 +16,20 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
+import com.example.ahmed.mosas_hotel.CircleTransform;
 import com.example.ahmed.mosas_hotel.Home.home_activity;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.fonts.MySpinnerAdapter;
 import com.example.ahmed.mosas_hotel.uilit.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +56,9 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Display display = getWindowManager().getDefaultDisplay();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        ImageView logo=(ImageView)findViewById(R.id.logo) ;
+        Picasso.with(this).load(R.drawable.small)
+                .transform(new CircleTransform()).into(logo);
         Point size = new Point();
         display.getSize(size);
         int width = size.x;

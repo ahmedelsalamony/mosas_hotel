@@ -6,10 +6,15 @@ import android.support.v7.app.AppCompatActivity;
         import android.support.v7.widget.LinearLayoutManager;
         import android.support.v7.widget.RecyclerView;
         import android.view.View;
-        import com.example.ahmed.mosas_hotel.Adapters.activities_Adapter;
-        import com.example.ahmed.mosas_hotel.R;
+import android.widget.ImageView;
+
+import com.example.ahmed.mosas_hotel.Adapters.activities_Adapter;
+import com.example.ahmed.mosas_hotel.CircleTransform;
+import com.example.ahmed.mosas_hotel.R;
         import com.example.ahmed.mosas_hotel.model.model_activities;
-        import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
         import java.util.List;
 
 public class activities_activity extends AppCompatActivity {
@@ -31,7 +36,9 @@ public class activities_activity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         prepareMovieData();
-        setTitle("Hotel Activities");
+        ImageView logo=(ImageView)findViewById(R.id.logo) ;
+        Picasso.with(this).load(R.drawable.small)
+                .transform(new CircleTransform()).into(logo);
     }
     private void prepareMovieData() {
 

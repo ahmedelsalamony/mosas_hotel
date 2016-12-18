@@ -1,6 +1,7 @@
 package com.example.ahmed.mosas_hotel.team;
 
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +13,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.ahmed.mosas_hotel.Adapters.activities_Adapter;
+import com.example.ahmed.mosas_hotel.CircleTransform;
 import com.example.ahmed.mosas_hotel.R;
 import com.example.ahmed.mosas_hotel.model.model_activities;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +43,9 @@ public class team_activity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         prepareMovieData();
-        setTitle("Hotel Team");
-
+        ImageView logo=(ImageView)findViewById(R.id.logo) ;
+        Picasso.with(this).load(R.drawable.small)
+                .transform(new CircleTransform()).into(logo);
         View btn= findViewById(R.id.btn_contactus);
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -52,9 +58,9 @@ public class team_activity extends AppCompatActivity {
                 // Custom Android Allert Dialog Title
                 dialog.setTitle("feel free to Contact us");
 
-                Button dail = (Button) dialog.findViewById(R.id.btn_dial);
+                View dail =  dialog.findViewById(R.id.btn_dial);
 
-                Button email = (Button) dialog.findViewById(R.id.btn_mail);
+                View email =  dialog.findViewById(R.id.btn_mail);
 
                 // Click cancel to dismiss android custom dialog box
                 dail.setOnClickListener(new View.OnClickListener() {

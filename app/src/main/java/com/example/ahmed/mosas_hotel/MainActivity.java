@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.ahmed.mosas_hotel.Home.home_activity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /** Called when the activity is first created. */
     Thread splashTread;
-    String[] MainDep, MainDepId, SubDep, SubDepId;
-    String MainDep1 = "", MainDepId1 = "", SubDep1 = "", SubDepId1 = "",SubDep1e = "", SubDepId1e = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView iv = (ImageView) findViewById(R.id.splash);
         View text =  findViewById(R.id.splash_text);
 
+        Picasso.with(this).load(R.drawable.logo)
+                .transform(new CircleTransform()).into(iv);
         iv.clearAnimation();
         iv.startAnimation(anim);
         text.clearAnimation();
