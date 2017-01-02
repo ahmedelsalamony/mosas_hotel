@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="20dp"
-                android:text="About Mossa"
+                android:text="About Moses Bay"
                 android:textColor="#fff"
                 android:textSize="20dp" />
 

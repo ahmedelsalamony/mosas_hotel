@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:textColor="#fff"
-            android:text="Mossa Team"
+            android:text="Moses Bay Team"
             android:layout_marginLeft="20dp"
             android:textSize="20dp" />
 

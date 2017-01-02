@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
-            android:text="Mosaa Hotel"
+            android:text="Moses Bay Hotel"
             android:textColor="#fff"
             android:textSize="20dp" />
     </android.support.v7.widget.Toolbar>
