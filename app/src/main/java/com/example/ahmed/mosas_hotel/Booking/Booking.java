@@ -41,6 +41,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class Booking extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     int year_x, day_x, month_x;
+    ImageView fromcel,tocel;
     int flag = 0;
     static final int Dilog_Id = 0;
     EditText name, country, email, from, to, details, type;
@@ -85,9 +86,13 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
         b1.setOnClickListener(this);
         from.setOnClickListener(this);
         to.setOnClickListener(this);
+        fromcel.setOnClickListener(this);
+        tocel.setOnClickListener(this);
     }
 
     public void component() {
+        fromcel=(ImageView)findViewById(R.id.fromcel);
+        tocel=(ImageView)findViewById(R.id.tocel);
         s1 = (Spinner) findViewById(R.id.s1);
         s2 = (Spinner) findViewById(R.id.s2);
         b1 = (CircularProgressButton) findViewById(R.id.btnWithText);
@@ -135,6 +140,16 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
                 flag = 1;
                 break;
             case R.id.to:
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+                showDialog(Dilog_Id);
+                flag = 2;
+                break;
+            case R.id.fromcel:
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+                showDialog(Dilog_Id);
+                flag = 1;
+                break;
+            case R.id.tocel:
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                 showDialog(Dilog_Id);
                 flag = 2;
@@ -197,7 +212,7 @@ public class Booking extends AppCompatActivity implements View.OnClickListener, 
             type.setError("Enter Room Type");
             out = false;
         }
-        if (TextUtils.isEmpty(email.getText())) {
+        if (TextUtils.isEmpty(email.getText())|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches()) {
             email.setError("Enter Your Email");
             out = false;
         }
